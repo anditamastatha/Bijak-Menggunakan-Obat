@@ -1,0 +1,2177 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Bijak Menggunakan Obat — Portal Edukasi Kesehatan</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Fraunces:ital,opsz,wght@0,9..144,400;0,9..144,500;0,9..144,600;0,9..144,700;1,9..144,400&family=Inter:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+<style>
+  :root {
+    --navy-900: #0A2540;
+    --navy-800: #123458;
+    --navy-700: #1B4B7A;
+    --blue-600: #2563A8;
+    --blue-500: #3B82C4;
+    --blue-100: #E3EEF7;
+    --blue-50: #F4F8FC;
+    --gold: #C9A24B;
+    --gold-soft: #E8D4A2;
+    --red-accent: #B23A3A;
+    --green-accent: #2F7D5B;
+    --ink: #1A1F2E;
+    --ink-soft: #4A5568;
+    --ink-mute: #718096;
+    --line: #D8E2EC;
+    --line-soft: #EAEFF5;
+    --cream: #FAF8F3;
+    --white: #FFFFFF;
+    --shadow-sm: 0 1px 2px rgba(10,37,64,0.04), 0 1px 3px rgba(10,37,64,0.06);
+    --shadow-md: 0 4px 12px rgba(10,37,64,0.06), 0 2px 4px rgba(10,37,64,0.04);
+    --shadow-lg: 0 12px 32px rgba(10,37,64,0.10), 0 4px 8px rgba(10,37,64,0.04);
+  }
+
+  * { box-sizing: border-box; margin: 0; padding: 0; }
+
+  html { scroll-behavior: smooth; }
+
+  body {
+    font-family: 'Inter', sans-serif;
+    color: var(--ink);
+    background: var(--white);
+    line-height: 1.65;
+    font-size: 16px;
+    font-weight: 400;
+    -webkit-font-smoothing: antialiased;
+  }
+
+  /* ======================= TOP STRIP ======================= */
+  .top-strip {
+    background: var(--navy-900);
+    color: #B8C7D6;
+    font-size: 12px;
+    padding: 8px 0;
+    letter-spacing: 0.3px;
+  }
+  .top-strip .inner {
+    max-width: 1240px;
+    margin: 0 auto;
+    padding: 0 32px;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+  }
+  .top-strip .gov-mark {
+    display: flex;
+    align-items: center;
+    gap: 10px;
+  }
+  .top-strip .gov-mark svg { width: 14px; height: 14px; }
+  .top-strip .meta { display: flex; gap: 24px; }
+  .top-strip .meta span { display: flex; align-items: center; gap: 6px; }
+
+  /* ======================= HEADER ======================= */
+  header {
+    background: var(--white);
+    border-bottom: 1px solid var(--line);
+    position: sticky;
+    top: 0;
+    z-index: 100;
+    box-shadow: var(--shadow-sm);
+  }
+  .header-inner {
+    max-width: 1240px;
+    margin: 0 auto;
+    padding: 18px 32px;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    gap: 40px;
+  }
+  .brand {
+    display: flex;
+    align-items: center;
+    gap: 14px;
+    cursor: pointer;
+  }
+  .brand-mark {
+    width: 48px;
+    height: 48px;
+    background: linear-gradient(135deg, var(--navy-800), var(--blue-600));
+    border-radius: 10px;
+    display: grid;
+    place-items: center;
+    box-shadow: var(--shadow-md);
+    position: relative;
+  }
+  .brand-mark::after {
+    content: '';
+    position: absolute;
+    inset: 2px;
+    border: 1px solid rgba(255,255,255,0.2);
+    border-radius: 8px;
+  }
+  .brand-mark svg { width: 26px; height: 26px; color: white; position: relative; z-index: 1; }
+  .brand-text { line-height: 1.2; }
+  .brand-text .name {
+    font-family: 'Fraunces', serif;
+    font-weight: 600;
+    font-size: 19px;
+    color: var(--navy-900);
+    letter-spacing: -0.3px;
+  }
+  .brand-text .tagline {
+    font-size: 11px;
+    color: var(--ink-mute);
+    text-transform: uppercase;
+    letter-spacing: 1.2px;
+    margin-top: 2px;
+    font-weight: 500;
+  }
+
+  nav ul {
+    list-style: none;
+    display: flex;
+    gap: 4px;
+  }
+  nav a {
+    padding: 10px 16px;
+    color: var(--ink-soft);
+    text-decoration: none;
+    font-size: 14.5px;
+    font-weight: 500;
+    border-radius: 6px;
+    transition: all 0.2s;
+    position: relative;
+  }
+  nav a:hover { color: var(--blue-600); background: var(--blue-50); }
+  nav a.active {
+    color: var(--navy-900);
+    font-weight: 600;
+  }
+  nav a.active::after {
+    content: '';
+    position: absolute;
+    bottom: -21px;
+    left: 16px;
+    right: 16px;
+    height: 3px;
+    background: var(--gold);
+    border-radius: 2px 2px 0 0;
+  }
+
+  /* ======================= PAGE VISIBILITY ======================= */
+  .page { display: none; animation: fadeIn 0.35s ease-out; }
+  .page.active { display: block; }
+  @keyframes fadeIn {
+    from { opacity: 0; transform: translateY(8px); }
+    to { opacity: 1; transform: translateY(0); }
+  }
+
+  /* ======================= HERO ======================= */
+  .hero {
+    background: linear-gradient(135deg, var(--navy-900) 0%, var(--navy-700) 55%, var(--blue-600) 100%);
+    color: white;
+    padding: 80px 0 100px;
+    position: relative;
+    overflow: hidden;
+  }
+  .hero::before {
+    content: '';
+    position: absolute;
+    top: 0; right: 0;
+    width: 55%;
+    height: 100%;
+    background-image:
+      radial-gradient(circle at 30% 20%, rgba(255,255,255,0.06) 0%, transparent 40%),
+      radial-gradient(circle at 70% 70%, rgba(201,162,75,0.08) 0%, transparent 45%);
+  }
+  .hero::after {
+    content: '';
+    position: absolute;
+    inset: 0;
+    background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='40' height='40' viewBox='0 0 40 40'%3E%3Cpath d='M0 20h40M20 0v40' stroke='%23ffffff' stroke-width='0.3' opacity='0.04'/%3E%3C/svg%3E");
+    pointer-events: none;
+  }
+  .hero-inner {
+    max-width: 1240px;
+    margin: 0 auto;
+    padding: 0 32px;
+    display: grid;
+    grid-template-columns: 1.3fr 1fr;
+    gap: 60px;
+    align-items: center;
+    position: relative;
+    z-index: 1;
+  }
+  .hero-badge {
+    display: inline-flex;
+    align-items: center;
+    gap: 8px;
+    background: rgba(201,162,75,0.15);
+    border: 1px solid rgba(201,162,75,0.3);
+    color: var(--gold-soft);
+    padding: 6px 14px;
+    border-radius: 100px;
+    font-size: 12px;
+    font-weight: 500;
+    letter-spacing: 0.8px;
+    text-transform: uppercase;
+    margin-bottom: 24px;
+  }
+  .hero-badge::before {
+    content: '';
+    width: 6px;
+    height: 6px;
+    background: var(--gold);
+    border-radius: 50%;
+  }
+  .hero h1 {
+    font-family: 'Fraunces', serif;
+    font-size: clamp(36px, 5vw, 56px);
+    line-height: 1.08;
+    font-weight: 500;
+    letter-spacing: -1.5px;
+    margin-bottom: 24px;
+  }
+  .hero h1 em {
+    font-style: italic;
+    color: var(--gold-soft);
+    font-weight: 400;
+  }
+  .hero p.lead {
+    font-size: 17px;
+    line-height: 1.7;
+    color: rgba(255,255,255,0.85);
+    max-width: 580px;
+    margin-bottom: 36px;
+  }
+  .hero-cta {
+    display: flex;
+    gap: 14px;
+    flex-wrap: wrap;
+  }
+  .btn {
+    padding: 14px 28px;
+    border-radius: 8px;
+    font-weight: 600;
+    font-size: 14.5px;
+    text-decoration: none;
+    display: inline-flex;
+    align-items: center;
+    gap: 10px;
+    transition: all 0.25s;
+    border: none;
+    cursor: pointer;
+    font-family: inherit;
+    letter-spacing: 0.2px;
+  }
+  .btn-primary {
+    background: var(--gold);
+    color: var(--navy-900);
+  }
+  .btn-primary:hover {
+    background: #d4ae57;
+    transform: translateY(-1px);
+    box-shadow: 0 8px 20px rgba(201,162,75,0.3);
+  }
+  .btn-secondary {
+    background: transparent;
+    color: white;
+    border: 1.5px solid rgba(255,255,255,0.3);
+  }
+  .btn-secondary:hover {
+    background: rgba(255,255,255,0.08);
+    border-color: rgba(255,255,255,0.5);
+  }
+
+  /* Hero card stack illustration */
+  .hero-visual {
+    position: relative;
+    height: 380px;
+  }
+  .hero-card {
+    position: absolute;
+    background: white;
+    border-radius: 14px;
+    padding: 20px;
+    box-shadow: 0 20px 60px rgba(0,0,0,0.2);
+    color: var(--ink);
+  }
+  .hero-card-1 {
+    top: 20px;
+    left: 10%;
+    width: 220px;
+    transform: rotate(-4deg);
+  }
+  .hero-card-2 {
+    top: 120px;
+    right: 10%;
+    width: 240px;
+    transform: rotate(3deg);
+    background: var(--cream);
+  }
+  .hero-card-3 {
+    bottom: 10px;
+    left: 30%;
+    width: 200px;
+    transform: rotate(-2deg);
+    background: var(--blue-100);
+  }
+  .hero-card .hc-icon {
+    width: 36px; height: 36px;
+    border-radius: 8px;
+    display: grid; place-items: center;
+    margin-bottom: 12px;
+  }
+  .hero-card-1 .hc-icon { background: var(--blue-100); color: var(--blue-600); }
+  .hero-card-2 .hc-icon { background: var(--gold-soft); color: var(--navy-900); }
+  .hero-card-3 .hc-icon { background: white; color: var(--green-accent); }
+  .hero-card svg { width: 20px; height: 20px; }
+  .hero-card .hc-title {
+    font-weight: 600;
+    font-size: 14px;
+    margin-bottom: 4px;
+    color: var(--navy-900);
+  }
+  .hero-card .hc-sub {
+    font-size: 12px;
+    color: var(--ink-mute);
+  }
+
+  /* ======================= COMMON SECTIONS ======================= */
+  .section {
+    max-width: 1240px;
+    margin: 0 auto;
+    padding: 80px 32px;
+  }
+  .section-tight {
+    max-width: 900px;
+    margin: 0 auto;
+    padding: 80px 32px;
+  }
+  .section-header {
+    margin-bottom: 56px;
+    max-width: 720px;
+  }
+  .section-header.center {
+    margin-left: auto;
+    margin-right: auto;
+    text-align: center;
+  }
+  .eyebrow {
+    display: inline-block;
+    color: var(--blue-600);
+    font-size: 12px;
+    font-weight: 600;
+    letter-spacing: 1.8px;
+    text-transform: uppercase;
+    margin-bottom: 14px;
+    padding-bottom: 8px;
+    border-bottom: 2px solid var(--gold);
+  }
+  h2 {
+    font-family: 'Fraunces', serif;
+    font-size: clamp(28px, 3.5vw, 40px);
+    line-height: 1.15;
+    font-weight: 500;
+    color: var(--navy-900);
+    letter-spacing: -0.8px;
+    margin-bottom: 16px;
+  }
+  h2 em { font-style: italic; color: var(--blue-600); }
+  h3 {
+    font-family: 'Fraunces', serif;
+    font-size: 22px;
+    font-weight: 600;
+    color: var(--navy-900);
+    letter-spacing: -0.3px;
+    margin-bottom: 12px;
+    line-height: 1.3;
+  }
+  .section-header p {
+    font-size: 17px;
+    color: var(--ink-soft);
+    line-height: 1.7;
+  }
+
+  /* ======================= TOPIC GRID ======================= */
+  .topic-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+    gap: 24px;
+  }
+  .topic-card {
+    background: white;
+    border: 1px solid var(--line);
+    border-radius: 12px;
+    padding: 32px 28px;
+    transition: all 0.3s;
+    position: relative;
+    overflow: hidden;
+  }
+  .topic-card::before {
+    content: '';
+    position: absolute;
+    top: 0; left: 0;
+    width: 100%;
+    height: 3px;
+    background: var(--blue-600);
+    transform: scaleX(0);
+    transform-origin: left;
+    transition: transform 0.35s ease;
+  }
+  .topic-card:hover {
+    border-color: var(--blue-500);
+    box-shadow: var(--shadow-lg);
+    transform: translateY(-2px);
+  }
+  .topic-card:hover::before { transform: scaleX(1); }
+  .topic-icon {
+    width: 52px;
+    height: 52px;
+    background: var(--blue-50);
+    color: var(--blue-600);
+    border-radius: 10px;
+    display: grid;
+    place-items: center;
+    margin-bottom: 20px;
+  }
+  .topic-icon svg { width: 26px; height: 26px; }
+  .topic-card h4 {
+    font-family: 'Fraunces', serif;
+    font-size: 19px;
+    font-weight: 600;
+    color: var(--navy-900);
+    margin-bottom: 10px;
+  }
+  .topic-card p {
+    font-size: 14.5px;
+    color: var(--ink-soft);
+    line-height: 1.65;
+    margin-bottom: 16px;
+  }
+  .topic-link {
+    font-size: 13.5px;
+    color: var(--blue-600);
+    font-weight: 600;
+    text-decoration: none;
+    display: inline-flex;
+    align-items: center;
+    gap: 6px;
+    cursor: pointer;
+    border: none;
+    background: none;
+    padding: 0;
+    font-family: inherit;
+  }
+  .topic-link:hover { gap: 10px; }
+  .topic-link::after {
+    content: '→';
+    transition: transform 0.2s;
+  }
+
+  /* ======================= STATS BAND ======================= */
+  .stats-band {
+    background: var(--cream);
+    border-top: 1px solid var(--line);
+    border-bottom: 1px solid var(--line);
+    padding: 56px 0;
+  }
+  .stats-inner {
+    max-width: 1240px;
+    margin: 0 auto;
+    padding: 0 32px;
+    display: grid;
+    grid-template-columns: repeat(4, 1fr);
+    gap: 40px;
+  }
+  .stat {
+    text-align: center;
+    border-right: 1px solid var(--line);
+    padding: 0 20px;
+  }
+  .stat:last-child { border-right: none; }
+  .stat-num {
+    font-family: 'Fraunces', serif;
+    font-size: 44px;
+    font-weight: 600;
+    color: var(--navy-900);
+    line-height: 1;
+    letter-spacing: -1.5px;
+  }
+  .stat-num .unit {
+    font-size: 20px;
+    color: var(--gold);
+    margin-left: 2px;
+  }
+  .stat-label {
+    font-size: 13px;
+    color: var(--ink-soft);
+    margin-top: 10px;
+    line-height: 1.4;
+    text-transform: uppercase;
+    letter-spacing: 0.8px;
+    font-weight: 500;
+  }
+
+  /* ======================= EDUKASI PAGE ======================= */
+  .edu-intro {
+    background: var(--blue-50);
+    padding: 56px 0;
+    border-bottom: 1px solid var(--line);
+  }
+  .edu-intro-inner {
+    max-width: 1240px;
+    margin: 0 auto;
+    padding: 0 32px;
+  }
+  .edu-section {
+    padding: 72px 0;
+    border-bottom: 1px solid var(--line-soft);
+  }
+  .edu-section:last-child { border-bottom: none; }
+  .edu-section-inner {
+    max-width: 1240px;
+    margin: 0 auto;
+    padding: 0 32px;
+    display: grid;
+    grid-template-columns: 280px 1fr;
+    gap: 60px;
+  }
+  .edu-meta {
+    position: sticky;
+    top: 120px;
+    align-self: start;
+  }
+  .edu-number {
+    font-family: 'Fraunces', serif;
+    font-size: 60px;
+    font-weight: 500;
+    color: var(--gold);
+    line-height: 1;
+    letter-spacing: -2px;
+    margin-bottom: 12px;
+    font-style: italic;
+  }
+  .edu-category {
+    font-size: 12px;
+    color: var(--blue-600);
+    font-weight: 600;
+    letter-spacing: 1.5px;
+    text-transform: uppercase;
+    margin-bottom: 8px;
+  }
+  .edu-meta h3 {
+    font-size: 26px;
+    line-height: 1.2;
+  }
+  .edu-content p {
+    font-size: 16px;
+    color: var(--ink-soft);
+    line-height: 1.8;
+    margin-bottom: 18px;
+  }
+  .edu-content strong {
+    color: var(--navy-900);
+    font-weight: 600;
+  }
+  .edu-content h4 {
+    font-family: 'Fraunces', serif;
+    font-size: 19px;
+    color: var(--navy-900);
+    font-weight: 600;
+    margin-top: 28px;
+    margin-bottom: 14px;
+  }
+  .edu-list {
+    list-style: none;
+    margin: 16px 0 24px;
+  }
+  .edu-list li {
+    padding: 10px 0 10px 32px;
+    position: relative;
+    font-size: 15.5px;
+    color: var(--ink-soft);
+    line-height: 1.7;
+    border-bottom: 1px solid var(--line-soft);
+  }
+  .edu-list li:last-child { border-bottom: none; }
+  .edu-list li::before {
+    content: '';
+    position: absolute;
+    left: 8px;
+    top: 20px;
+    width: 6px;
+    height: 6px;
+    background: var(--gold);
+    border-radius: 50%;
+  }
+  .edu-list li strong { color: var(--navy-900); }
+
+  .callout {
+    background: var(--cream);
+    border-left: 3px solid var(--gold);
+    padding: 20px 24px;
+    margin: 24px 0;
+    border-radius: 0 8px 8px 0;
+  }
+  .callout-title {
+    font-size: 12px;
+    font-weight: 700;
+    color: var(--gold);
+    letter-spacing: 1.5px;
+    text-transform: uppercase;
+    margin-bottom: 8px;
+    display: flex;
+    align-items: center;
+    gap: 8px;
+  }
+  .callout p {
+    font-size: 14.5px;
+    color: var(--navy-800);
+    margin-bottom: 0;
+    line-height: 1.65;
+  }
+  .callout.danger {
+    background: #FDF3F3;
+    border-left-color: var(--red-accent);
+  }
+  .callout.danger .callout-title { color: var(--red-accent); }
+
+  .drug-classification {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 16px;
+    margin: 24px 0;
+  }
+  .drug-class-card {
+    padding: 22px 20px;
+    border-radius: 10px;
+    border: 1px solid var(--line);
+    background: white;
+  }
+  .drug-symbol {
+    width: 44px;
+    height: 44px;
+    border-radius: 50%;
+    display: grid;
+    place-items: center;
+    margin-bottom: 14px;
+    font-weight: 700;
+    font-size: 13px;
+  }
+  .sym-hijau { background: #2F7D5B; color: white; border: 2px solid #1F5940; }
+  .sym-biru { background: #2563A8; color: white; border: 2px solid #123458; }
+  .sym-merah { background: white; color: #B23A3A; border: 2px solid #B23A3A; }
+  .drug-class-card h5 {
+    font-family: 'Fraunces', serif;
+    font-size: 16px;
+    font-weight: 600;
+    color: var(--navy-900);
+    margin-bottom: 6px;
+  }
+  .drug-class-card p {
+    font-size: 13.5px;
+    color: var(--ink-soft);
+    line-height: 1.55;
+    margin-bottom: 0;
+  }
+
+  .interaction-table {
+    margin: 20px 0 28px;
+    border: 1px solid var(--line);
+    border-radius: 10px;
+    overflow: hidden;
+  }
+  .interaction-row {
+    display: grid;
+    grid-template-columns: 1fr 1fr 1.3fr;
+    border-bottom: 1px solid var(--line-soft);
+  }
+  .interaction-row:last-child { border-bottom: none; }
+  .interaction-row.header {
+    background: var(--navy-900);
+    color: white;
+    font-size: 12px;
+    font-weight: 600;
+    text-transform: uppercase;
+    letter-spacing: 1px;
+  }
+  .interaction-row > div {
+    padding: 14px 18px;
+    border-right: 1px solid var(--line-soft);
+    font-size: 14px;
+  }
+  .interaction-row > div:last-child { border-right: none; }
+  .interaction-row:not(.header) > div { color: var(--ink-soft); }
+  .interaction-row:not(.header) strong { color: var(--navy-900); }
+
+  /* ======================= ARTIKEL PAGE ======================= */
+  .article-hero {
+    background: var(--cream);
+    padding: 60px 0;
+    border-bottom: 1px solid var(--line);
+  }
+  .article-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(320px, 1fr));
+    gap: 32px;
+    padding: 72px 32px;
+    max-width: 1240px;
+    margin: 0 auto;
+  }
+  .article-card {
+    background: white;
+    border: 1px solid var(--line);
+    border-radius: 12px;
+    overflow: hidden;
+    transition: all 0.3s;
+    display: flex;
+    flex-direction: column;
+  }
+  .article-card:hover {
+    box-shadow: var(--shadow-lg);
+    transform: translateY(-3px);
+    border-color: var(--blue-500);
+  }
+  .article-thumb {
+    height: 180px;
+    background: linear-gradient(135deg, var(--navy-800), var(--blue-600));
+    position: relative;
+    overflow: hidden;
+    display: grid;
+    place-items: center;
+  }
+  .article-thumb.variant-2 { background: linear-gradient(135deg, #1B4B7A, #2F7D5B); }
+  .article-thumb.variant-3 { background: linear-gradient(135deg, #123458, #C9A24B); }
+  .article-thumb.variant-4 { background: linear-gradient(135deg, #0A2540, #B23A3A); }
+  .article-thumb.variant-5 { background: linear-gradient(135deg, #2563A8, #123458); }
+  .article-thumb::before {
+    content: '';
+    position: absolute;
+    inset: 0;
+    background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='60' height='60' viewBox='0 0 60 60'%3E%3Ccircle cx='30' cy='30' r='1.5' fill='white' opacity='0.15'/%3E%3C/svg%3E");
+  }
+  .article-thumb svg {
+    width: 60px;
+    height: 60px;
+    color: white;
+    opacity: 0.9;
+    position: relative;
+    z-index: 1;
+  }
+  .article-body {
+    padding: 26px 28px 28px;
+    flex: 1;
+    display: flex;
+    flex-direction: column;
+  }
+  .article-tag {
+    font-size: 11px;
+    color: var(--blue-600);
+    font-weight: 600;
+    letter-spacing: 1.2px;
+    text-transform: uppercase;
+    margin-bottom: 10px;
+  }
+  .article-card h4 {
+    font-family: 'Fraunces', serif;
+    font-size: 20px;
+    font-weight: 600;
+    line-height: 1.3;
+    color: var(--navy-900);
+    margin-bottom: 12px;
+    letter-spacing: -0.3px;
+  }
+  .article-card .excerpt {
+    font-size: 14.5px;
+    color: var(--ink-soft);
+    line-height: 1.65;
+    margin-bottom: 18px;
+    flex: 1;
+  }
+  .article-footer {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding-top: 16px;
+    border-top: 1px solid var(--line-soft);
+    font-size: 12.5px;
+    color: var(--ink-mute);
+  }
+  .article-footer .author { font-weight: 500; color: var(--ink-soft); }
+
+  /* ======================= FAQ PAGE ======================= */
+  .faq-container {
+    max-width: 860px;
+    margin: 0 auto;
+    padding: 72px 32px;
+  }
+  .faq-item {
+    border-bottom: 1px solid var(--line);
+    padding: 4px 0;
+  }
+  .faq-item:first-child { border-top: 1px solid var(--line); }
+  .faq-q {
+    width: 100%;
+    background: none;
+    border: none;
+    padding: 24px 0;
+    text-align: left;
+    cursor: pointer;
+    font-family: 'Fraunces', serif;
+    font-size: 19px;
+    font-weight: 600;
+    color: var(--navy-900);
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    gap: 20px;
+    transition: color 0.2s;
+  }
+  .faq-q:hover { color: var(--blue-600); }
+  .faq-q .num {
+    font-style: italic;
+    color: var(--gold);
+    font-weight: 500;
+    font-size: 16px;
+    min-width: 28px;
+  }
+  .faq-q .icon {
+    min-width: 32px;
+    height: 32px;
+    border: 1.5px solid var(--line);
+    border-radius: 50%;
+    display: grid;
+    place-items: center;
+    transition: all 0.25s;
+    color: var(--blue-600);
+  }
+  .faq-item.open .faq-q .icon {
+    background: var(--blue-600);
+    color: white;
+    border-color: var(--blue-600);
+    transform: rotate(45deg);
+  }
+  .faq-a {
+    max-height: 0;
+    overflow: hidden;
+    transition: max-height 0.35s ease;
+  }
+  .faq-item.open .faq-a { max-height: 600px; }
+  .faq-a-inner {
+    padding: 0 52px 28px 28px;
+    font-size: 15.5px;
+    color: var(--ink-soft);
+    line-height: 1.75;
+  }
+  .faq-a-inner p { margin-bottom: 12px; }
+  .faq-a-inner p:last-child { margin-bottom: 0; }
+
+  /* ======================= TENTANG KAMI ======================= */
+  .tentang-hero {
+    background: linear-gradient(135deg, var(--navy-900), var(--navy-700));
+    color: white;
+    padding: 80px 0;
+    position: relative;
+    overflow: hidden;
+  }
+  .tentang-hero::before {
+    content: '';
+    position: absolute;
+    right: -100px;
+    top: 50%;
+    transform: translateY(-50%);
+    width: 500px;
+    height: 500px;
+    border-radius: 50%;
+    background: radial-gradient(circle, rgba(201,162,75,0.1), transparent 70%);
+  }
+  .tentang-hero-inner {
+    max-width: 1000px;
+    margin: 0 auto;
+    padding: 0 32px;
+    position: relative;
+  }
+  .tentang-hero .eyebrow {
+    color: var(--gold-soft);
+    border-bottom-color: var(--gold);
+  }
+  .tentang-hero h2 {
+    color: white;
+    font-size: clamp(32px, 4.5vw, 48px);
+    max-width: 720px;
+  }
+  .tentang-hero h2 em { color: var(--gold-soft); }
+  .tentang-hero p {
+    font-size: 18px;
+    line-height: 1.75;
+    color: rgba(255,255,255,0.85);
+    max-width: 680px;
+    margin-top: 20px;
+  }
+
+  .tentang-section {
+    max-width: 1000px;
+    margin: 0 auto;
+    padding: 72px 32px;
+  }
+  .tentang-grid {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 60px;
+    margin-top: 32px;
+  }
+  .tentang-col p {
+    font-size: 16px;
+    color: var(--ink-soft);
+    line-height: 1.8;
+    margin-bottom: 16px;
+  }
+  .values-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
+    gap: 24px;
+    margin-top: 40px;
+  }
+  .value-card {
+    padding: 28px 24px;
+    border: 1px solid var(--line);
+    border-radius: 10px;
+    background: white;
+  }
+  .value-num {
+    font-family: 'Fraunces', serif;
+    font-style: italic;
+    font-size: 32px;
+    color: var(--gold);
+    font-weight: 500;
+    line-height: 1;
+    margin-bottom: 14px;
+  }
+  .value-card h5 {
+    font-family: 'Fraunces', serif;
+    font-size: 18px;
+    color: var(--navy-900);
+    font-weight: 600;
+    margin-bottom: 8px;
+  }
+  .value-card p {
+    font-size: 14px;
+    color: var(--ink-soft);
+    line-height: 1.6;
+    margin: 0;
+  }
+
+  /* ======================= CTA BAND ======================= */
+  .cta-band {
+    background: var(--navy-900);
+    color: white;
+    padding: 72px 0;
+    position: relative;
+    overflow: hidden;
+  }
+  .cta-band::before {
+    content: '';
+    position: absolute;
+    inset: 0;
+    background-image:
+      radial-gradient(circle at 90% 50%, rgba(201,162,75,0.15), transparent 40%);
+  }
+  .cta-inner {
+    max-width: 1000px;
+    margin: 0 auto;
+    padding: 0 32px;
+    display: grid;
+    grid-template-columns: 2fr 1fr;
+    gap: 40px;
+    align-items: center;
+    position: relative;
+  }
+  .cta-inner h3 {
+    font-family: 'Fraunces', serif;
+    font-size: 32px;
+    font-weight: 500;
+    color: white;
+    line-height: 1.2;
+    margin-bottom: 12px;
+    letter-spacing: -0.5px;
+  }
+  .cta-inner h3 em { color: var(--gold-soft); font-style: italic; }
+  .cta-inner p {
+    color: rgba(255,255,255,0.75);
+    font-size: 16px;
+    line-height: 1.65;
+  }
+  .cta-inner .btn-wrap { text-align: right; }
+
+  /* ======================= FOOTER ======================= */
+  footer {
+    background: #081C2E;
+    color: #B8C7D6;
+    padding: 60px 0 24px;
+    font-size: 14px;
+  }
+  .footer-inner {
+    max-width: 1240px;
+    margin: 0 auto;
+    padding: 0 32px;
+  }
+  .footer-grid {
+    display: grid;
+    grid-template-columns: 1.5fr 1fr 1fr 1fr;
+    gap: 48px;
+    padding-bottom: 40px;
+    border-bottom: 1px solid rgba(255,255,255,0.08);
+  }
+  .footer-brand .brand-mark { box-shadow: none; }
+  .footer-brand .name { color: white; }
+  .footer-brand .tagline { color: var(--gold-soft); }
+  .footer-brand p {
+    font-size: 13.5px;
+    line-height: 1.7;
+    margin-top: 16px;
+    color: #8FA4B8;
+  }
+  .footer-col h6 {
+    font-family: 'Fraunces', serif;
+    font-size: 14px;
+    color: white;
+    font-weight: 600;
+    margin-bottom: 18px;
+    letter-spacing: 0.3px;
+  }
+  .footer-col ul { list-style: none; }
+  .footer-col li { margin-bottom: 10px; }
+  .footer-col a {
+    color: #8FA4B8;
+    text-decoration: none;
+    font-size: 13.5px;
+    transition: color 0.2s;
+    cursor: pointer;
+  }
+  .footer-col a:hover { color: var(--gold-soft); }
+  .footer-bottom {
+    padding-top: 24px;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    font-size: 12.5px;
+    color: #6B7F94;
+  }
+  .footer-bottom em {
+    color: var(--gold-soft);
+    font-style: italic;
+    font-family: 'Fraunces', serif;
+  }
+
+  /* ======================= RESPONSIVE ======================= */
+  @media (max-width: 1024px) {
+    .hero-inner { grid-template-columns: 1fr; }
+    .hero-visual { display: none; }
+    .edu-section-inner { grid-template-columns: 1fr; gap: 32px; }
+    .edu-meta { position: static; }
+    .stats-inner { grid-template-columns: repeat(2, 1fr); }
+    .stat:nth-child(2) { border-right: none; }
+    .cta-inner { grid-template-columns: 1fr; }
+    .cta-inner .btn-wrap { text-align: left; }
+    .tentang-grid { grid-template-columns: 1fr; gap: 24px; }
+    .footer-grid { grid-template-columns: 1fr 1fr; gap: 32px; }
+    .drug-classification { grid-template-columns: 1fr; }
+    .interaction-row { grid-template-columns: 1fr; }
+    .interaction-row > div { border-right: none; border-bottom: 1px solid var(--line-soft); }
+  }
+  @media (max-width: 640px) {
+    .top-strip .meta { display: none; }
+    nav ul { display: none; }
+    .header-inner { padding: 14px 20px; }
+    .section, .section-tight { padding: 56px 20px; }
+    .stats-inner { grid-template-columns: 1fr; gap: 24px; }
+    .stat { border-right: none; border-bottom: 1px solid var(--line); padding-bottom: 24px; }
+    .stat:last-child { border-bottom: none; padding-bottom: 0; }
+    .footer-grid { grid-template-columns: 1fr; }
+    .footer-bottom { flex-direction: column; gap: 12px; text-align: center; }
+    .hero { padding: 56px 0 72px; }
+    .hero-inner { padding: 0 20px; }
+  }
+</style>
+</head>
+<body>
+
+<!-- ======================= TOP STRIP ======================= -->
+<div class="top-strip">
+  <div class="inner">
+    <div class="gov-mark">
+      <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+        <path d="M12 2L3 7v6c0 5 4 9 9 10 5-1 9-5 9-10V7l-9-5z"/>
+      </svg>
+      <span>Portal Literasi Kesehatan &middot; Edukasi Farmasi Masyarakat</span>
+    </div>
+    <div class="meta">
+      <span>📞 Info Obat: 1500-567</span>
+      <span>✉ kontak@bijakobat.id</span>
+    </div>
+  </div>
+</div>
+
+<!-- ======================= HEADER ======================= -->
+<header>
+  <div class="header-inner">
+    <div class="brand" onclick="showPage('home')">
+      <div class="brand-mark">
+        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+          <path d="M10.5 20.5 21 10a3.5 3.5 0 0 0-5-5L5.5 15.5"/>
+          <path d="m8.5 8.5 7 7"/>
+          <rect x="3" y="14" width="8" height="8" rx="4" transform="rotate(-45 7 18)"/>
+        </svg>
+      </div>
+      <div class="brand-text">
+        <div class="name">Bijak Obat</div>
+        <div class="tagline">Portal Edukasi Farmasi</div>
+      </div>
+    </div>
+    <nav>
+      <ul>
+        <li><a class="nav-link active" data-page="home" onclick="showPage('home')">Beranda</a></li>
+        <li><a class="nav-link" data-page="edukasi" onclick="showPage('edukasi')">Edukasi</a></li>
+        <li><a class="nav-link" data-page="artikel" onclick="showPage('artikel')">Artikel</a></li>
+        <li><a class="nav-link" data-page="faq" onclick="showPage('faq')">FAQ</a></li>
+        <li><a class="nav-link" data-page="tentang" onclick="showPage('tentang')">Tentang Kami</a></li>
+      </ul>
+    </nav>
+  </div>
+</header>
+
+<!-- ============================================================= -->
+<!-- ======================== HALAMAN HOME ======================= -->
+<!-- ============================================================= -->
+<div class="page active" id="page-home">
+
+  <section class="hero">
+    <div class="hero-inner">
+      <div>
+        <div class="hero-badge">Literasi Obat untuk Indonesia Sehat</div>
+        <h1>Bijak Menggunakan Obat untuk <em>Hidup Lebih Sehat</em></h1>
+        <p class="lead">
+          Obat adalah sahabat kesehatan — namun hanya jika digunakan dengan benar.
+          Portal ini menghadirkan panduan farmasi yang akurat, sederhana, dan mudah
+          dipahami, agar setiap keluarga Indonesia dapat mengambil keputusan sehat
+          yang cerdas dan bertanggung jawab.
+        </p>
+        <div class="hero-cta">
+          <button class="btn btn-primary" onclick="showPage('edukasi')">
+            Pelajari Lebih Lanjut
+            <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><path d="M5 12h14M13 5l7 7-7 7"/></svg>
+          </button>
+          <button class="btn btn-secondary" onclick="showPage('artikel')">Baca Artikel</button>
+        </div>
+      </div>
+      <div class="hero-visual">
+        <div class="hero-card hero-card-1">
+          <div class="hc-icon">
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="12" cy="12" r="10"/><polyline points="12 6 12 12 16 14"/></svg>
+          </div>
+          <div class="hc-title">Aturan Minum</div>
+          <div class="hc-sub">3× sehari = tiap 8 jam</div>
+        </div>
+        <div class="hero-card hero-card-2">
+          <div class="hc-icon">
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M8 3v4M16 3v4M3 11h18M5 5h14a2 2 0 0 1 2 2v12a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2V7a2 2 0 0 1 2-2z"/></svg>
+          </div>
+          <div class="hc-title">Antibiotik</div>
+          <div class="hc-sub">Harus dihabiskan sesuai resep</div>
+        </div>
+        <div class="hero-card hero-card-3">
+          <div class="hc-icon">
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M22 11.08V12a10 10 0 1 1-5.93-9.14"/><polyline points="22 4 12 14.01 9 11.01"/></svg>
+          </div>
+          <div class="hc-title">DAGUSIBU</div>
+          <div class="hc-sub">Dapat, Guna, Simpan, Buang</div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <div class="stats-band">
+    <div class="stats-inner">
+      <div class="stat">
+        <div class="stat-num">80<span class="unit">%</span></div>
+        <div class="stat-label">Rumah tangga menyimpan obat di rumah</div>
+      </div>
+      <div class="stat">
+        <div class="stat-num">1<span class="unit"> dari 3</span></div>
+        <div class="stat-label">Pasien tidak mengikuti aturan minum obat</div>
+      </div>
+      <div class="stat">
+        <div class="stat-num">5</div>
+        <div class="stat-label">Golongan obat yang perlu dikenali masyarakat</div>
+      </div>
+      <div class="stat">
+        <div class="stat-num">100<span class="unit">%</span></div>
+        <div class="stat-label">Risiko resistensi bisa ditekan dengan edukasi</div>
+      </div>
+    </div>
+  </div>
+
+  <section class="section">
+    <div class="section-header">
+      <span class="eyebrow">Topik Unggulan</span>
+      <h2>Lima pilar utama <em>literasi obat</em> yang wajib dipahami setiap keluarga</h2>
+      <p>
+        Memahami obat bukan hanya tugas dokter atau apoteker. Setiap orang yang
+        mengonsumsi obat perlu tahu apa yang masuk ke dalam tubuhnya, bagaimana
+        cara kerjanya, dan risiko jika digunakan sembarangan.
+      </p>
+    </div>
+
+    <div class="topic-grid">
+
+      <div class="topic-card">
+        <div class="topic-icon">
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"><circle cx="12" cy="12" r="10"/><polyline points="12 6 12 12 16 14"/></svg>
+        </div>
+        <h4>Cara Penggunaan Obat</h4>
+        <p>Pahami perbedaan obat sebelum dan sesudah makan, aturan dosis yang tepat, serta waktu minum yang ideal agar efektivitas maksimal.</p>
+        <button class="topic-link" onclick="showPage('edukasi'); setTimeout(()=>scrollToSection('edu-1'),100)">Pelajari topik</button>
+      </div>
+
+      <div class="topic-card">
+        <div class="topic-icon">
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"><rect x="3" y="3" width="18" height="18" rx="2"/><path d="M9 3v18M3 9h18"/></svg>
+        </div>
+        <h4>Jenis-Jenis Obat</h4>
+        <p>Kenali logo hijau, biru, dan merah pada kemasan obat — simbol sederhana yang membedakan obat bebas, bebas terbatas, dan obat keras.</p>
+        <button class="topic-link" onclick="showPage('edukasi'); setTimeout(()=>scrollToSection('edu-2'),100)">Pelajari topik</button>
+      </div>
+
+      <div class="topic-card">
+        <div class="topic-icon">
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"><path d="M12 2a10 10 0 1 0 10 10h-10V2z"/><path d="M21 12a9 9 0 0 0-9-9v9h9z"/></svg>
+        </div>
+        <h4>Swamedikasi yang Aman</h4>
+        <p>Pengobatan mandiri diperbolehkan untuk keluhan ringan. Pelajari batasan, aturan, dan tanda-tanda Anda perlu segera ke dokter.</p>
+        <button class="topic-link" onclick="showPage('edukasi'); setTimeout(()=>scrollToSection('edu-3'),100)">Pelajari topik</button>
+      </div>
+
+      <div class="topic-card">
+        <div class="topic-icon">
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"><path d="M10.29 3.86 1.82 18a2 2 0 0 0 1.71 3h16.94a2 2 0 0 0 1.71-3L13.71 3.86a2 2 0 0 0-3.42 0z"/><line x1="12" y1="9" x2="12" y2="13"/><line x1="12" y1="17" x2="12.01" y2="17"/></svg>
+        </div>
+        <h4>Antibiotik &amp; Resistensi</h4>
+        <p>Penggunaan antibiotik tanpa resep adalah ancaman senyap global. Pahami mengapa antibiotik wajib dihabiskan dan risiko resistensi.</p>
+        <button class="topic-link" onclick="showPage('edukasi'); setTimeout(()=>scrollToSection('edu-4'),100)">Pelajari topik</button>
+      </div>
+
+      <div class="topic-card">
+        <div class="topic-icon">
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"><path d="M8 21h8M12 17v4M5 3h14l-2 14H7L5 3z"/><path d="M9 8h6"/></svg>
+        </div>
+        <h4>Interaksi Obat</h4>
+        <p>Kopi, susu, grapefruit, hingga suplemen dapat mengubah kerja obat. Kenali kombinasi berbahaya yang sering terjadi di rumah.</p>
+        <button class="topic-link" onclick="showPage('edukasi'); setTimeout(()=>scrollToSection('edu-5'),100)">Pelajari topik</button>
+      </div>
+
+      <div class="topic-card">
+        <div class="topic-icon">
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"><path d="M14 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V8z"/><polyline points="14 2 14 8 20 8"/><line x1="9" y1="15" x2="15" y2="15"/></svg>
+        </div>
+        <h4>Artikel &amp; Edukasi</h4>
+        <p>Bacaan populer-ilmiah seputar mitos obat, tips keluarga, dan panduan praktis yang bisa Anda terapkan di rumah hari ini juga.</p>
+        <button class="topic-link" onclick="showPage('artikel')">Pelajari topik</button>
+      </div>
+
+    </div>
+  </section>
+
+  <section class="cta-band">
+    <div class="cta-inner">
+      <div>
+        <h3>Satu keputusan bijak hari ini, <em>menyelamatkan kesehatan esok</em>.</h3>
+        <p>
+          Bacalah label. Tanyakan pada apoteker. Habiskan antibiotik Anda.
+          Tiga kebiasaan sederhana yang menentukan kualitas pengobatan seumur hidup.
+        </p>
+      </div>
+      <div class="btn-wrap">
+        <button class="btn btn-primary" onclick="showPage('edukasi')">
+          Mulai Pelajari
+          <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><path d="M5 12h14M13 5l7 7-7 7"/></svg>
+        </button>
+      </div>
+    </div>
+  </section>
+
+</div>
+
+<!-- ============================================================= -->
+<!-- ======================= HALAMAN EDUKASI ===================== -->
+<!-- ============================================================= -->
+<div class="page" id="page-edukasi">
+
+  <section class="edu-intro">
+    <div class="edu-intro-inner">
+      <span class="eyebrow">Pusat Edukasi Utama</span>
+      <h2>Panduan komprehensif <em>penggunaan obat yang rasional</em></h2>
+      <p style="max-width: 760px; font-size: 17px; color: var(--ink-soft); margin-top: 12px;">
+        Penggunaan obat yang rasional (POR) adalah prinsip yang ditetapkan oleh World Health
+        Organization (WHO): pasien menerima obat yang sesuai dengan kebutuhan klinisnya,
+        dalam dosis yang tepat, selama periode waktu yang memadai, dan dengan biaya
+        yang paling terjangkau. Lima topik berikut adalah fondasinya.
+      </p>
+    </div>
+  </section>
+
+  <!-- SUBTOPIK 1 -->
+  <section class="edu-section" id="edu-1">
+    <div class="edu-section-inner">
+      <div class="edu-meta">
+        <div class="edu-number">01</div>
+        <div class="edu-category">Topik Utama</div>
+        <h3>Cara Penggunaan Obat yang Benar</h3>
+      </div>
+      <div class="edu-content">
+        <p>
+          Setiap obat dirancang oleh ilmuwan farmasi dengan mempertimbangkan bagaimana
+          senyawa aktifnya akan diserap, dimetabolisme, dan dikeluarkan oleh tubuh — proses
+          yang dalam ilmu farmasi disebut <strong>farmakokinetik</strong>. Karena itu, cara
+          minum obat bukan sekadar kebiasaan, melainkan instruksi ilmiah yang memengaruhi
+          keberhasilan terapi.
+        </p>
+
+        <h4>Sebelum atau Sesudah Makan?</h4>
+        <p>
+          Aturan ini bukan sekadar formalitas. Beberapa obat seperti <strong>antibiotik
+          golongan tetrasiklin</strong> harus diminum saat perut kosong karena makanan
+          — terutama produk susu — dapat mengikat molekul obat dan menghambat
+          penyerapannya. Sebaliknya, obat seperti <strong>natrium diklofenak</strong> atau
+          obat antiinflamasi nonsteroid (OAINS) lainnya harus diminum sesudah makan untuk
+          melindungi lapisan lambung dari iritasi.
+        </p>
+
+        <ul class="edu-list">
+          <li><strong>Sebelum makan</strong> umumnya berarti 30–60 menit sebelum makanan masuk ke lambung, saat perut relatif kosong.</li>
+          <li><strong>Sesudah makan</strong> berarti obat diminum 15–30 menit setelah makan, agar ada pelindung mukosa lambung.</li>
+          <li><strong>Saat makan</strong> berarti obat diminum bersamaan dengan makanan untuk membantu penyerapan atau mengurangi efek samping.</li>
+        </ul>
+
+        <h4>Aturan Dosis dan Waktu Minum</h4>
+        <p>
+          Ketika label obat tertulis "3 kali sehari", artinya bukan pagi-siang-malam secara
+          acak, melainkan <strong>setiap 8 jam sekali</strong>. Pola ini dirancang untuk
+          menjaga <em>kadar terapeutik</em> obat — yakni konsentrasi obat di dalam darah —
+          tetap stabil sepanjang hari. Demikian pula "2 kali sehari" berarti setiap 12 jam,
+          dan "4 kali sehari" berarti setiap 6 jam.
+        </p>
+
+        <div class="callout">
+          <div class="callout-title">💡 Tips Praktis</div>
+          <p>
+            Pasang alarm di ponsel untuk setiap jadwal minum obat, terutama bila Anda
+            menggunakan lebih dari satu jenis obat. Ketepatan waktu sama pentingnya
+            dengan ketepatan dosis.
+          </p>
+        </div>
+
+        <p>
+          Jika Anda <strong>lupa satu dosis</strong>, segera minum begitu ingat — kecuali
+          jika waktunya sudah dekat dengan dosis berikutnya. Dalam kasus tersebut, lewati
+          saja dosis yang terlewat. <strong>Jangan pernah menggandakan dosis</strong>
+          untuk "mengejar ketinggalan", karena hal ini dapat menyebabkan keracunan obat.
+        </p>
+      </div>
+    </div>
+  </section>
+
+  <!-- SUBTOPIK 2 -->
+  <section class="edu-section" id="edu-2" style="background: var(--blue-50);">
+    <div class="edu-section-inner">
+      <div class="edu-meta">
+        <div class="edu-number">02</div>
+        <div class="edu-category">Topik Utama</div>
+        <h3>Jenis-Jenis Obat Berdasarkan Penggolongan</h3>
+      </div>
+      <div class="edu-content">
+        <p>
+          Di Indonesia, Badan Pengawas Obat dan Makanan (BPOM) menetapkan penggolongan
+          obat berdasarkan tingkat risikonya. Logo berbentuk lingkaran berwarna pada
+          kemasan obat bukan sekadar dekorasi — itu adalah <strong>bahasa visual</strong>
+          yang memberi tahu Anda seberapa aman obat tersebut untuk dibeli dan dikonsumsi
+          tanpa bantuan tenaga kesehatan.
+        </p>
+
+        <div class="drug-classification">
+          <div class="drug-class-card">
+            <div class="drug-symbol sym-hijau">●</div>
+            <h5>Obat Bebas</h5>
+            <p>Logo lingkaran hijau. Dapat dibeli bebas di apotek, toko obat, bahkan minimarket. Contoh: parasetamol, vitamin C.</p>
+          </div>
+          <div class="drug-class-card">
+            <div class="drug-symbol sym-biru">●</div>
+            <h5>Obat Bebas Terbatas</h5>
+            <p>Logo lingkaran biru dengan garis tepi hitam. Bisa dibeli tanpa resep, tapi harus disertai peringatan (P1–P6). Contoh: CTM, obat flu kombinasi.</p>
+          </div>
+          <div class="drug-class-card">
+            <div class="drug-symbol sym-merah">K</div>
+            <h5>Obat Keras</h5>
+            <p>Logo lingkaran merah dengan huruf "K" hitam. Wajib dengan resep dokter. Termasuk antibiotik, obat hipertensi, dan kortikosteroid.</p>
+          </div>
+        </div>
+
+        <h4>Golongan Lainnya yang Perlu Dikenali</h4>
+        <p>
+          Selain tiga golongan utama di atas, terdapat pula <strong>Obat Wajib Apotek
+          (OWA)</strong> — obat keras tertentu yang boleh diserahkan apoteker tanpa resep
+          dokter dalam kondisi khusus, seperti obat asma atau kontrasepsi oral. Golongan
+          <strong>Psikotropika</strong> dan <strong>Narkotika</strong> berada di tingkat
+          pengawasan paling ketat dan hanya dapat diperoleh dengan resep dokter asli,
+          tidak bisa difotokopi atau ditebus berulang tanpa pemeriksaan ulang.
+        </p>
+
+        <div class="callout danger">
+          <div class="callout-title">⚠ Waspada Obat Ilegal</div>
+          <p>
+            Obat yang dijual tanpa label BPOM, dikemas tidak rapi, atau ditawarkan secara
+            door-to-door berpotensi palsu atau kedaluwarsa. Selalu beli obat di apotek
+            resmi yang memiliki Surat Izin Apotek (SIA) dan apoteker penanggung jawab.
+          </p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- SUBTOPIK 3 -->
+  <section class="edu-section" id="edu-3">
+    <div class="edu-section-inner">
+      <div class="edu-meta">
+        <div class="edu-number">03</div>
+        <div class="edu-category">Topik Utama</div>
+        <h3>Swamedikasi yang Aman dan Bertanggung Jawab</h3>
+      </div>
+      <div class="edu-content">
+        <p>
+          <strong>Swamedikasi</strong> atau pengobatan sendiri adalah praktik yang sah
+          dan didukung oleh WHO untuk keluhan kesehatan ringan. Menurut definisi Kementerian
+          Kesehatan, swamedikasi adalah upaya pengobatan yang dilakukan masyarakat untuk
+          mengatasi keluhan penyakit ringan <em>tanpa konsultasi dengan dokter</em>,
+          menggunakan obat bebas atau obat bebas terbatas.
+        </p>
+
+        <h4>Keluhan yang Boleh Diobati Sendiri</h4>
+        <ul class="edu-list">
+          <li><strong>Batuk dan pilek ringan</strong> tanpa demam tinggi, tanpa sesak napas.</li>
+          <li><strong>Sakit kepala</strong> sesekali tanpa disertai gejala neurologis seperti muntah proyektil atau pandangan kabur.</li>
+          <li><strong>Demam ringan</strong> di bawah 38,5°C yang berlangsung kurang dari 3 hari.</li>
+          <li><strong>Gangguan pencernaan ringan</strong> seperti maag atau diare akut tanpa darah.</li>
+          <li><strong>Luka lecet atau memar</strong> yang tidak dalam dan tidak berdarah hebat.</li>
+        </ul>
+
+        <h4>Kapan Harus Segera ke Dokter?</h4>
+        <p>
+          Swamedikasi memiliki batasan. Jangan ragu untuk menghentikan pengobatan sendiri
+          dan segera mencari bantuan medis profesional jika:
+        </p>
+        <ul class="edu-list">
+          <li>Gejala <strong>tidak membaik dalam 3 hari</strong> atau justru memburuk.</li>
+          <li>Muncul <strong>reaksi alergi</strong> seperti ruam, gatal hebat, bengkak di wajah, atau kesulitan bernapas.</li>
+          <li>Demam tinggi di atas <strong>39°C</strong> atau disertai kejang.</li>
+          <li>Gejala pada bayi, ibu hamil, ibu menyusui, atau lansia dengan penyakit kronis.</li>
+          <li>Nyeri dada, sesak napas, atau perubahan kesadaran.</li>
+        </ul>
+
+        <div class="callout">
+          <div class="callout-title">💬 Tanya Apoteker Anda</div>
+          <p>
+            Sebelum membeli obat bebas, jangan sungkan bertanya pada apoteker di apotek.
+            Mereka adalah ahli obat yang dilatih untuk memberikan <em>konseling
+            farmasi</em> sesuai kondisi Anda — dan layanan ini gratis.
+          </p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- SUBTOPIK 4 -->
+  <section class="edu-section" id="edu-4" style="background: var(--cream);">
+    <div class="edu-section-inner">
+      <div class="edu-meta">
+        <div class="edu-number">04</div>
+        <div class="edu-category">Topik Utama</div>
+        <h3>Antibiotik dan Ancaman Resistensi Antimikroba</h3>
+      </div>
+      <div class="edu-content">
+        <p>
+          Antibiotik adalah salah satu penemuan medis terbesar abad ke-20 — senyawa yang
+          membunuh atau menghambat pertumbuhan bakteri penyebab infeksi. Namun, kesalahpahaman
+          masyarakat tentang antibiotik kini menjadi salah satu <strong>ancaman kesehatan
+          global paling serius</strong> yang diperingatkan oleh WHO sebagai "silent pandemic".
+        </p>
+
+        <h4>Antibiotik Tidak Mengobati Virus</h4>
+        <p>
+          Ini adalah kesalahpahaman paling umum. Antibiotik hanya bekerja melawan
+          <strong>bakteri</strong>, bukan virus. Itu artinya, antibiotik <em>tidak
+          berguna</em> untuk flu biasa, batuk akibat virus, COVID-19, atau sebagian besar
+          radang tenggorokan yang umumnya disebabkan virus. Mengonsumsi antibiotik untuk
+          penyakit virus tidak menyembuhkan, tetapi justru membunuh bakteri baik di
+          tubuh dan mendorong pertumbuhan bakteri yang kebal.
+        </p>
+
+        <h4>Mengapa Antibiotik Harus Dihabiskan?</h4>
+        <p>
+          Ketika dokter meresepkan antibiotik selama 5 atau 7 hari, durasi tersebut
+          dihitung berdasarkan waktu yang dibutuhkan untuk <strong>membunuh seluruh
+          populasi bakteri penyebab infeksi</strong>. Bila Anda berhenti di tengah jalan
+          karena merasa sudah enakan, bakteri yang tersisa — biasanya yang paling kuat —
+          akan bertahan hidup, bereproduksi, dan mewariskan gen ketahanannya.
+        </p>
+
+        <div class="callout danger">
+          <div class="callout-title">🦠 Resistensi Antimikroba (AMR)</div>
+          <p>
+            Resistensi antimikroba terjadi ketika bakteri berevolusi menjadi kebal
+            terhadap antibiotik yang sebelumnya efektif. WHO memperkirakan 10 juta
+            kematian per tahun akibat AMR pada 2050 jika tren ini tidak dihentikan.
+            Setiap tablet antibiotik yang disalahgunakan berkontribusi pada krisis ini.
+          </p>
+        </div>
+
+        <h4>Prinsip Pemakaian Antibiotik yang Benar</h4>
+        <ul class="edu-list">
+          <li><strong>Hanya dengan resep dokter</strong> — antibiotik adalah obat keras yang penggunaannya memerlukan diagnosis profesional.</li>
+          <li><strong>Habiskan sesuai durasi resep</strong> meskipun gejala sudah hilang di hari kedua atau ketiga.</li>
+          <li><strong>Jangan bagikan antibiotik</strong> kepada anggota keluarga lain meskipun gejalanya mirip.</li>
+          <li><strong>Jangan simpan sisa antibiotik</strong> untuk dipakai lain waktu — setiap infeksi perlu diagnosis ulang.</li>
+          <li><strong>Jangan minta antibiotik ke dokter</strong> jika dokter sudah menentukan penyakit Anda tidak membutuhkannya.</li>
+        </ul>
+      </div>
+    </div>
+  </section>
+
+  <!-- SUBTOPIK 5 -->
+  <section class="edu-section" id="edu-5">
+    <div class="edu-section-inner">
+      <div class="edu-meta">
+        <div class="edu-number">05</div>
+        <div class="edu-category">Topik Utama</div>
+        <h3>Interaksi Obat dengan Makanan dan Obat Lain</h3>
+      </div>
+      <div class="edu-content">
+        <p>
+          <strong>Interaksi obat</strong> adalah perubahan efek suatu obat akibat
+          keberadaan obat lain, makanan, minuman, atau suplemen di dalam tubuh.
+          Interaksi dapat meningkatkan efek samping, menurunkan efektivitas, atau bahkan
+          memicu reaksi beracun. Berikut beberapa kombinasi paling sering ditemui di
+          kehidupan sehari-hari.
+        </p>
+
+        <div class="interaction-table">
+          <div class="interaction-row header">
+            <div>Obat</div>
+            <div>Jangan Dikonsumsi Bersama</div>
+            <div>Alasan Farmakologis</div>
+          </div>
+          <div class="interaction-row">
+            <div><strong>Antibiotik Tetrasiklin</strong></div>
+            <div>Susu, yoghurt, keju, suplemen kalsium</div>
+            <div>Kalsium mengikat tetrasiklin membentuk kompleks yang tidak dapat diserap usus.</div>
+          </div>
+          <div class="interaction-row">
+            <div><strong>Obat Tiroid (Levotiroksin)</strong></div>
+            <div>Kopi, susu, makanan tinggi serat</div>
+            <div>Menghambat absorpsi obat hingga 40%. Minum 30–60 menit sebelum sarapan dengan air putih.</div>
+          </div>
+          <div class="interaction-row">
+            <div><strong>Warfarin (pengencer darah)</strong></div>
+            <div>Sayuran hijau tinggi vitamin K, jus grapefruit</div>
+            <div>Vitamin K melawan kerja warfarin; grapefruit meningkatkan kadar obat hingga risiko perdarahan.</div>
+          </div>
+          <div class="interaction-row">
+            <div><strong>Obat Batuk berdekongestan</strong></div>
+            <div>Kopi, teh, minuman berenergi</div>
+            <div>Kafein + pseudoefedrin meningkatkan tekanan darah dan denyut jantung secara berlebihan.</div>
+          </div>
+          <div class="interaction-row">
+            <div><strong>OAINS (ibuprofen, asam mefenamat)</strong></div>
+            <div>Alkohol, obat pengencer darah lain</div>
+            <div>Meningkatkan risiko perdarahan lambung dan tukak peptik.</div>
+          </div>
+        </div>
+
+        <h4>Mengapa Kopi dan Susu Sering Disebut?</h4>
+        <p>
+          <strong>Kafein</strong> dalam kopi merupakan stimulan sistem saraf pusat yang
+          dapat memperkuat efek obat stimulan atau memperburuk efek samping obat tekanan
+          darah. Sementara itu, <strong>kalsium</strong> dalam susu bereaksi dengan
+          beberapa antibiotik (tetrasiklin, siprofloksasin) dan mineral suplemen besi,
+          membentuk senyawa tidak larut yang lewat begitu saja tanpa diserap tubuh.
+          Aturan umum: <em>minum obat dengan air putih, bukan minuman lain</em>, kecuali
+          ada petunjuk khusus dari apoteker.
+        </p>
+
+        <div class="callout">
+          <div class="callout-title">📋 Aturan Emas</div>
+          <p>
+            Saat menebus obat baru, selalu tanyakan kepada apoteker: "Apakah ada makanan,
+            minuman, atau obat lain yang perlu saya hindari selama pengobatan ini?"
+            Pertanyaan sederhana ini dapat menyelamatkan terapi Anda.
+          </p>
+        </div>
+
+        <h4>Prinsip DAGUSIBU: Siklus Hidup Obat di Rumah</h4>
+        <p>
+          Kementerian Kesehatan mempopulerkan akronim <strong>DAGUSIBU</strong> sebagai
+          panduan pengelolaan obat di rumah: <strong>DA</strong>patkan obat di tempat
+          resmi, <strong>GU</strong>nakan sesuai aturan, <strong>SI</strong>mpan di tempat
+          kering dan terlindung dari anak-anak, <strong>BU</strong>ang dengan cara yang
+          benar saat kedaluwarsa. Obat kedaluwarsa tidak boleh dibuang ke saluran air
+          karena mencemari lingkungan.
+        </p>
+      </div>
+    </div>
+  </section>
+
+</div>
+
+<!-- ============================================================= -->
+<!-- ======================= HALAMAN ARTIKEL ===================== -->
+<!-- ============================================================= -->
+<div class="page" id="page-artikel">
+
+  <section class="article-hero">
+    <div class="edu-intro-inner">
+      <span class="eyebrow">Artikel &amp; Tulisan Edukasi</span>
+      <h2>Bacaan populer-ilmiah untuk <em>keluarga yang cerdas obat</em></h2>
+      <p style="max-width: 720px; font-size: 17px; color: var(--ink-soft); margin-top: 12px;">
+        Kami menghadirkan artikel dengan bahasa yang mudah dicerna namun tetap berpijak
+        pada literatur farmasi yang terpercaya. Setiap artikel ditulis untuk membantu
+        Anda mengambil keputusan kesehatan yang lebih baik.
+      </p>
+    </div>
+  </section>
+
+  <div class="article-grid">
+
+    <article class="article-card">
+      <div class="article-thumb">
+        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><path d="M10.29 3.86 1.82 18a2 2 0 0 0 1.71 3h16.94a2 2 0 0 0 1.71-3L13.71 3.86a2 2 0 0 0-3.42 0z"/><line x1="12" y1="9" x2="12" y2="13"/><line x1="12" y1="17" x2="12.01" y2="17"/></svg>
+      </div>
+      <div class="article-body">
+        <div class="article-tag">Antibiotik &middot; Kesehatan Global</div>
+        <h4>"Saya Sudah Sembuh, Kenapa Antibiotik Harus Dihabiskan?" — Penjelasan yang Jarang Diceritakan</h4>
+        <p class="excerpt">
+          Banyak pasien berhenti minum antibiotik di hari ketiga karena merasa sudah
+          enak. Padahal justru di momen itulah pertempuran terpenting sedang terjadi di
+          dalam tubuh. Artikel ini menjelaskan mengapa sisa bakteri yang tertinggal
+          adalah yang paling berbahaya — dan bagaimana kebiasaan kecil kita bisa
+          berkontribusi pada krisis resistensi antimikroba dunia.
+        </p>
+        <div class="article-footer">
+          <span class="author">Tim Redaksi Bijak Obat</span>
+          <span>8 menit baca</span>
+        </div>
+      </div>
+    </article>
+
+    <article class="article-card">
+      <div class="article-thumb variant-2">
+        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><path d="M6 2v6a6 6 0 0 0 12 0V2"/><path d="M18 22H6"/><path d="M12 14v8"/></svg>
+      </div>
+      <div class="article-body">
+        <div class="article-tag">Swamedikasi &middot; Keluarga</div>
+        <h4>Kotak P3K di Rumah: 7 Obat Bebas yang Wajib Dimiliki Setiap Keluarga</h4>
+        <p class="excerpt">
+          Dari parasetamol untuk demam hingga oralit untuk diare anak — panduan praktis
+          menyusun kotak obat keluarga yang efisien, tidak berlebihan, dan sesuai
+          rekomendasi apoteker. Termasuk tips menyimpan obat agar tidak rusak sebelum
+          kedaluwarsa dan cara mengenali obat yang sudah tidak layak pakai.
+        </p>
+        <div class="article-footer">
+          <span class="author">Tim Redaksi Bijak Obat</span>
+          <span>6 menit baca</span>
+        </div>
+      </div>
+    </article>
+
+    <article class="article-card">
+      <div class="article-thumb variant-3">
+        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><path d="M17 8h1a4 4 0 1 1 0 8h-1"/><path d="M3 8h14v9a4 4 0 0 1-4 4H7a4 4 0 0 1-4-4V8z"/><line x1="6" y1="1" x2="6" y2="4"/><line x1="10" y1="1" x2="10" y2="4"/><line x1="14" y1="1" x2="14" y2="4"/></svg>
+      </div>
+      <div class="article-body">
+        <div class="article-tag">Interaksi Obat &middot; Gaya Hidup</div>
+        <h4>Kopi Pagi dan Obat Anda: Kombinasi yang Mungkin Mengacaukan Pengobatan</h4>
+        <p class="excerpt">
+          Ritual kopi pagi terasa sempurna — sampai Anda menyadari bahwa secangkir
+          espresso bisa mengurangi efektivitas obat tiroid hingga 40%, atau justru
+          melipatgandakan efek samping obat flu tertentu. Kami mengurai sains di balik
+          interaksi ini dan memberi panduan waktu minum obat yang tepat bagi pecinta kopi.
+        </p>
+        <div class="article-footer">
+          <span class="author">Tim Redaksi Bijak Obat</span>
+          <span>7 menit baca</span>
+        </div>
+      </div>
+    </article>
+
+    <article class="article-card">
+      <div class="article-thumb variant-4">
+        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><circle cx="12" cy="12" r="10"/><line x1="4.93" y1="4.93" x2="19.07" y2="19.07"/></svg>
+      </div>
+      <div class="article-body">
+        <div class="article-tag">Mitos &amp; Fakta</div>
+        <h4>Lima Mitos tentang Obat yang Masih Dipercaya Banyak Orang Indonesia</h4>
+        <p class="excerpt">
+          "Minum obat generik kurang manjur." "Antibiotik bikin kebal penyakit."
+          "Obat herbal pasti aman karena alami." Kami menelusuri lima mitos yang
+          paling sering beredar di grup WhatsApp keluarga dan menjelaskan faktanya
+          berdasarkan literatur ilmiah serta regulasi BPOM. Hasilnya mungkin
+          mengejutkan Anda.
+        </p>
+        <div class="article-footer">
+          <span class="author">Tim Redaksi Bijak Obat</span>
+          <span>9 menit baca</span>
+        </div>
+      </div>
+    </article>
+
+    <article class="article-card">
+      <div class="article-thumb variant-5">
+        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><path d="M20 7h-7m7 5h-7m7 5h-7M4 7h.01M4 12h.01M4 17h.01"/></svg>
+      </div>
+      <div class="article-body">
+        <div class="article-tag">Edukasi &middot; Panduan Dasar</div>
+        <h4>Membaca Label Obat: Informasi yang Sering Terlewatkan tapi Menyelamatkan</h4>
+        <p class="excerpt">
+          Di balik kemasan obat yang tampak sederhana terdapat belasan informasi penting
+          — dari nama generik, bentuk sediaan, indikasi, dosis, kontraindikasi, hingga
+          nomor registrasi BPOM. Panduan langkah demi langkah membaca label obat
+          dengan benar agar Anda tidak pernah lagi mengonsumsi obat secara "buta".
+        </p>
+        <div class="article-footer">
+          <span class="author">Tim Redaksi Bijak Obat</span>
+          <span>5 menit baca</span>
+        </div>
+      </div>
+    </article>
+
+  </div>
+
+</div>
+
+<!-- ============================================================= -->
+<!-- ========================= HALAMAN FAQ ======================= -->
+<!-- ============================================================= -->
+<div class="page" id="page-faq">
+
+  <section class="article-hero">
+    <div class="edu-intro-inner">
+      <span class="eyebrow">Pertanyaan yang Sering Diajukan</span>
+      <h2>Jawaban untuk pertanyaan <em>paling umum seputar obat</em></h2>
+      <p style="max-width: 720px; font-size: 17px; color: var(--ink-soft); margin-top: 12px;">
+        Kami mengumpulkan pertanyaan yang paling sering muncul di layanan konsultasi
+        apoteker, grup keluarga, dan forum kesehatan. Jawaban disusun berdasarkan
+        rujukan farmakologi standar dan pedoman Kementerian Kesehatan Republik Indonesia.
+      </p>
+    </div>
+  </section>
+
+  <div class="faq-container">
+
+    <div class="faq-item">
+      <button class="faq-q" onclick="toggleFaq(this)">
+        <span style="display:flex; gap:16px; align-items:baseline;"><span class="num">01</span><span>Apakah boleh minum obat tanpa resep dokter?</span></span>
+        <span class="icon"><svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><path d="M12 5v14M5 12h14"/></svg></span>
+      </button>
+      <div class="faq-a">
+        <div class="faq-a-inner">
+          <p>
+            Boleh, namun <strong>hanya untuk golongan obat bebas (logo lingkaran hijau)</strong>
+            dan <strong>obat bebas terbatas (logo lingkaran biru)</strong>. Kedua golongan
+            ini dirancang aman untuk swamedikasi atau pengobatan mandiri pada keluhan ringan
+            seperti sakit kepala, demam, batuk, pilek, atau gangguan pencernaan biasa.
+          </p>
+          <p>
+            Namun untuk <strong>obat keras (logo lingkaran merah dengan huruf K)</strong>
+            seperti antibiotik, obat tekanan darah, obat diabetes, atau kortikosteroid —
+            wajib menggunakan resep dokter. Membeli obat keras tanpa resep bukan hanya
+            melanggar hukum, tetapi juga berbahaya karena tanpa diagnosis tepat, obat
+            bisa menyamarkan gejala penyakit serius atau menimbulkan komplikasi.
+          </p>
+        </div>
+      </div>
+    </div>
+
+    <div class="faq-item">
+      <button class="faq-q" onclick="toggleFaq(this)">
+        <span style="display:flex; gap:16px; align-items:baseline;"><span class="num">02</span><span>Kenapa antibiotik harus dihabiskan meskipun sudah merasa sembuh?</span></span>
+        <span class="icon"><svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><path d="M12 5v14M5 12h14"/></svg></span>
+      </button>
+      <div class="faq-a">
+        <div class="faq-a-inner">
+          <p>
+            Karena perasaan "sembuh" tidak sama dengan "bakteri sudah hilang". Ketika
+            gejala mereda di hari kedua atau ketiga, sebagian bakteri memang sudah mati,
+            tetapi masih ada populasi bakteri yang <strong>paling kuat dan paling tahan
+            obat</strong> yang perlu waktu lebih lama untuk dihabisi.
+          </p>
+          <p>
+            Jika Anda berhenti di tengah jalan, bakteri sisa ini bertahan hidup,
+            bereproduksi, dan <em>mewariskan gen ketahanan</em> kepada keturunannya. Inilah
+            cara <strong>resistensi antimikroba</strong> berkembang — fenomena global
+            yang disebut WHO sebagai salah satu dari sepuluh ancaman kesehatan terbesar
+            dunia. Menghabiskan antibiotik sesuai resep adalah kontribusi kecil Anda
+            terhadap keselamatan kesehatan generasi mendatang.
+          </p>
+        </div>
+      </div>
+    </div>
+
+    <div class="faq-item">
+      <button class="faq-q" onclick="toggleFaq(this)">
+        <span style="display:flex; gap:16px; align-items:baseline;"><span class="num">03</span><span>Apa arti aturan minum obat "3 kali sehari"?</span></span>
+        <span class="icon"><svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><path d="M12 5v14M5 12h14"/></svg></span>
+      </button>
+      <div class="faq-a">
+        <div class="faq-a-inner">
+          <p>
+            "3 kali sehari" berarti <strong>setiap 8 jam sekali</strong>, bukan sekadar
+            pagi-siang-malam sesuka hati. Misalnya pukul 06.00, 14.00, dan 22.00. Jeda
+            waktu yang konsisten ini dirancang untuk menjaga <strong>kadar obat di dalam
+            darah tetap stabil</strong> pada rentang terapeutik — yaitu konsentrasi yang
+            efektif membunuh kuman atau mengendalikan gejala.
+          </p>
+          <p>
+            Aturan serupa berlaku untuk "2 kali sehari" (tiap 12 jam) dan "4 kali sehari"
+            (tiap 6 jam). Pasang alarm di ponsel untuk memastikan ketepatan jadwal,
+            terutama untuk antibiotik dan obat kronis seperti obat hipertensi atau
+            diabetes.
+          </p>
+        </div>
+      </div>
+    </div>
+
+    <div class="faq-item">
+      <button class="faq-q" onclick="toggleFaq(this)">
+        <span style="display:flex; gap:16px; align-items:baseline;"><span class="num">04</span><span>Bolehkah obat diminum dengan kopi, teh, atau susu?</span></span>
+        <span class="icon"><svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><path d="M12 5v14M5 12h14"/></svg></span>
+      </button>
+      <div class="faq-a">
+        <div class="faq-a-inner">
+          <p>
+            Sebaiknya <strong>tidak</strong>. Aturan emasnya: minum obat dengan
+            <strong>air putih biasa</strong>, kecuali ada petunjuk khusus dari apoteker.
+            Kopi dan teh mengandung kafein serta tanin yang bisa memperkuat efek samping
+            atau menurunkan penyerapan obat tertentu. Susu mengandung kalsium yang
+            mengikat beberapa antibiotik (golongan tetrasiklin, siprofloksasin) dan
+            suplemen besi — membentuk senyawa yang tidak bisa diserap usus.
+          </p>
+          <p>
+            Jika Anda tetap ingin mengonsumsi kopi atau susu, beri <strong>jeda minimal
+            2 jam</strong> sebelum atau sesudah minum obat. Untuk obat tertentu seperti
+            levotiroksin (obat tiroid), jeda harus lebih lama.
+          </p>
+        </div>
+      </div>
+    </div>
+
+    <div class="faq-item">
+      <button class="faq-q" onclick="toggleFaq(this)">
+        <span style="display:flex; gap:16px; align-items:baseline;"><span class="num">05</span><span>Apa yang harus dilakukan jika lupa minum obat?</span></span>
+        <span class="icon"><svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><path d="M12 5v14M5 12h14"/></svg></span>
+      </button>
+      <div class="faq-a">
+        <div class="faq-a-inner">
+          <p>
+            Segera minum begitu Anda ingat, <em>kecuali</em> jika waktunya sudah dekat
+            dengan dosis berikutnya. Dalam kasus tersebut, lewati saja dosis yang
+            terlewat dan lanjutkan jadwal seperti biasa. <strong>Jangan pernah
+            menggandakan dosis</strong> untuk "mengejar ketinggalan" — hal ini bisa
+            memicu keracunan obat atau efek samping yang serius.
+          </p>
+          <p>
+            Untuk obat yang sangat presisi jadwalnya (misalnya obat kontrasepsi oral
+            atau antiretroviral untuk HIV), aturan "lupa dosis" memiliki protokol khusus.
+            Konsultasikan dengan dokter atau apoteker Anda, dan pastikan Anda memahami
+            aturan spesifik obat yang dikonsumsi sejak awal diresepkan.
+          </p>
+        </div>
+      </div>
+    </div>
+
+    <div class="faq-item">
+      <button class="faq-q" onclick="toggleFaq(this)">
+        <span style="display:flex; gap:16px; align-items:baseline;"><span class="num">06</span><span>Apakah obat generik sama efektifnya dengan obat paten?</span></span>
+        <span class="icon"><svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><path d="M12 5v14M5 12h14"/></svg></span>
+      </button>
+      <div class="faq-a">
+        <div class="faq-a-inner">
+          <p>
+            <strong>Ya, sama efektifnya.</strong> Obat generik mengandung <em>zat aktif
+            yang identik</em> dengan obat paten dalam dosis, kekuatan, cara pakai, dan
+            keamanan yang sama. Obat generik hanya berbeda dalam nama, kemasan, dan
+            harga. Badan Pengawas Obat dan Makanan (BPOM) mewajibkan uji <em>bioekivalensi</em>
+            — yakni uji bahwa obat generik memiliki profil penyerapan dan efek yang
+            setara dengan obat paten referensi.
+          </p>
+          <p>
+            Harga obat generik bisa jauh lebih murah bukan karena kualitasnya rendah,
+            tetapi karena biaya riset dan pengembangannya sudah tidak ditanggung lagi
+            oleh produsen (paten telah kedaluwarsa). Memilih obat generik adalah pilihan
+            cerdas yang didukung penuh oleh Kementerian Kesehatan.
+          </p>
+        </div>
+      </div>
+    </div>
+
+    <div class="faq-item">
+      <button class="faq-q" onclick="toggleFaq(this)">
+        <span style="display:flex; gap:16px; align-items:baseline;"><span class="num">07</span><span>Bagaimana cara membuang obat kedaluwarsa dengan benar?</span></span>
+        <span class="icon"><svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><path d="M12 5v14M5 12h14"/></svg></span>
+      </button>
+      <div class="faq-a">
+        <div class="faq-a-inner">
+          <p>
+            Obat kedaluwarsa <strong>tidak boleh dibuang langsung ke tempat sampah,
+            saluran air, atau toilet</strong> karena dapat mencemari lingkungan dan
+            meracuni tanah serta air tanah. Ikuti langkah berikut:
+          </p>
+          <p>
+            <strong>Untuk tablet dan kapsul:</strong> keluarkan dari kemasan asli,
+            hancurkan atau larutkan dalam air, campurkan dengan tanah/bubuk kopi bekas,
+            masukkan ke dalam wadah tertutup rapat, baru buang ke tempat sampah.
+            <strong>Untuk sirup:</strong> buang cairan ke saluran limbah (bukan got),
+            remas botol, dan buang ke sampah. <strong>Untuk kemasan:</strong> gunting
+            atau sobek label yang mencantumkan nama Anda sebelum dibuang agar data
+            pribadi tidak disalahgunakan.
+          </p>
+          <p>
+            Beberapa apotek di kota besar menerima obat kedaluwarsa untuk dimusnahkan
+            secara profesional. Tanyakan pada apotek terdekat Anda.
+          </p>
+        </div>
+      </div>
+    </div>
+
+  </div>
+
+</div>
+
+<!-- ============================================================= -->
+<!-- ===================== HALAMAN TENTANG KAMI ================== -->
+<!-- ============================================================= -->
+<div class="page" id="page-tentang">
+
+  <section class="tentang-hero">
+    <div class="tentang-hero-inner">
+      <span class="eyebrow">Tentang Bijak Obat</span>
+      <h2>Portal edukasi kesehatan yang dikembangkan oleh <em>mahasiswa farmasi</em> untuk masyarakat Indonesia</h2>
+      <p>
+        Bijak Obat hadir dari satu keprihatinan: masih banyak masyarakat Indonesia yang
+        mengonsumsi obat tanpa memahami apa yang mereka telan, bagaimana cara kerjanya,
+        dan risiko yang menyertainya. Kami percaya, literasi obat adalah hak setiap orang.
+      </p>
+    </div>
+  </section>
+
+  <section class="tentang-section">
+    <span class="eyebrow">Visi &amp; Misi</span>
+    <h2>Mewujudkan masyarakat yang <em>cerdas mengelola obat</em> di setiap rumah</h2>
+
+    <div class="tentang-grid">
+      <div class="tentang-col">
+        <h3>Siapa Kami</h3>
+        <p>
+          Bijak Obat adalah inisiatif edukasi kesehatan yang digagas oleh mahasiswa
+          program studi Farmasi. Kami bukan media komersial, bukan pula platform
+          penjualan obat. Kami adalah <strong>media pendidikan publik</strong> yang
+          berupaya menjembatani jarak antara ilmu farmasi yang rumit dengan kebutuhan
+          informasi masyarakat sehari-hari.
+        </p>
+        <p>
+          Proyek ini lahir dari tugas akademik, namun kami berharap semangatnya
+          berlanjut lebih jauh dari sekadar pemenuhan kurikulum. Kami ingin menjadi
+          bagian kecil dari gerakan literasi kesehatan nasional yang didukung penuh
+          oleh Kementerian Kesehatan RI dan organisasi profesi seperti Ikatan
+          Apoteker Indonesia (IAI).
+        </p>
+      </div>
+
+      <div class="tentang-col">
+        <h3>Apa yang Kami Lakukan</h3>
+        <p>
+          Kami menerjemahkan pengetahuan farmasi — yang sering kali tertutup dalam
+          buku teks berbahasa ilmiah — menjadi artikel, panduan, dan infografis yang
+          dapat dipahami ibu rumah tangga, pelajar, dan siapa pun tanpa latar
+          belakang medis. Setiap konten kami tulis dengan berpedoman pada sumber
+          resmi seperti <em>Farmakope Indonesia</em>, pedoman World Health
+          Organization (WHO), serta regulasi Badan Pengawas Obat dan Makanan (BPOM).
+        </p>
+        <p>
+          Kami meyakini bahwa informasi kesehatan yang akurat harus tersedia secara
+          gratis, terbuka, dan mudah diakses. Tidak ada iklan, tidak ada produk
+          yang kami jual, dan tidak ada afiliasi komersial dengan pihak mana pun.
+        </p>
+      </div>
+    </div>
+  </section>
+
+  <section class="tentang-section" style="background: var(--cream); max-width: 100%; padding: 72px 0;">
+    <div style="max-width: 1000px; margin: 0 auto; padding: 0 32px;">
+      <span class="eyebrow">Nilai-Nilai Kami</span>
+      <h2>Empat prinsip yang menjadi <em>landasan setiap konten</em> di portal ini</h2>
+
+      <div class="values-grid">
+        <div class="value-card">
+          <div class="value-num">01</div>
+          <h5>Akurasi Ilmiah</h5>
+          <p>Setiap informasi farmasi yang kami sajikan bersumber dari literatur ilmiah terverifikasi, pedoman resmi, dan tinjauan dosen pembimbing.</p>
+        </div>
+        <div class="value-card">
+          <div class="value-num">02</div>
+          <h5>Bahasa yang Manusiawi</h5>
+          <p>Kami tolak jargon yang tak perlu. Penjelasan kami disusun agar dapat dipahami oleh siapa saja, dari pelajar SMA hingga lansia.</p>
+        </div>
+        <div class="value-card">
+          <div class="value-num">03</div>
+          <h5>Independen &amp; Nirlaba</h5>
+          <p>Tidak ada konflik kepentingan komersial. Kami tidak menerima pembiayaan dari produsen obat atau pihak yang memiliki kepentingan penjualan.</p>
+        </div>
+        <div class="value-card">
+          <div class="value-num">04</div>
+          <h5>Menghargai Profesi</h5>
+          <p>Portal ini tidak menggantikan konsultasi dokter atau apoteker. Kami adalah pelengkap, bukan pengganti, nasihat medis profesional.</p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <section class="tentang-section">
+    <span class="eyebrow">Catatan Penting</span>
+    <h2>Batasan tanggung jawab &amp; <em>pernyataan disclaimer</em></h2>
+    <p style="font-size:16px; color:var(--ink-soft); line-height:1.8; margin-top:16px;">
+      Informasi yang tersaji di portal Bijak Obat bertujuan murni sebagai <strong>edukasi
+      umum</strong> dan tidak dapat digunakan sebagai diagnosis, resep, atau saran medis
+      personal. Setiap kondisi kesehatan individual memiliki konteks unik yang hanya
+      dapat dinilai oleh tenaga kesehatan terqualifikasi yang memeriksa Anda secara
+      langsung. Konsultasikan selalu dengan dokter, apoteker, atau tenaga kesehatan
+      profesional sebelum memulai, menghentikan, atau mengubah pengobatan apa pun.
+    </p>
+    <p style="font-size:16px; color:var(--ink-soft); line-height:1.8; margin-top:14px;">
+      Dalam keadaan darurat medis, hubungi segera layanan gawat darurat 119 atau
+      kunjungi Unit Gawat Darurat rumah sakit terdekat. Informasi di portal ini
+      diperbarui secara berkala, namun dapat terjadi perkembangan ilmu atau regulasi
+      yang belum sempat kami tambahkan.
+    </p>
+  </section>
+
+  <section class="cta-band">
+    <div class="cta-inner">
+      <div>
+        <h3>Slogan kami: <em>"Obat Tepat, Hidup Sehat."</em></h3>
+        <p>
+          Lima kata yang mengingatkan bahwa kesehatan tidak dibangun dari obat saja,
+          melainkan dari kebijaksanaan dalam menggunakannya.
+        </p>
+      </div>
+      <div class="btn-wrap">
+        <button class="btn btn-primary" onclick="showPage('edukasi')">
+          Jelajahi Edukasi
+          <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><path d="M5 12h14M13 5l7 7-7 7"/></svg>
+        </button>
+      </div>
+    </div>
+  </section>
+
+</div>
+
+<!-- ======================= FOOTER ======================= -->
+<footer>
+  <div class="footer-inner">
+    <div class="footer-grid">
+      <div class="footer-brand">
+        <div class="brand" style="margin-bottom: 8px;">
+          <div class="brand-mark">
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+              <path d="M10.5 20.5 21 10a3.5 3.5 0 0 0-5-5L5.5 15.5"/>
+              <path d="m8.5 8.5 7 7"/>
+            </svg>
+          </div>
+          <div class="brand-text">
+            <div class="name">Bijak Obat</div>
+            <div class="tagline">Portal Edukasi Farmasi</div>
+          </div>
+        </div>
+        <p>
+          Portal literasi kesehatan yang dikembangkan oleh mahasiswa farmasi untuk
+          meningkatkan pemahaman masyarakat Indonesia tentang penggunaan obat yang
+          rasional, aman, dan bertanggung jawab.
+        </p>
+      </div>
+      <div class="footer-col">
+        <h6>Navigasi</h6>
+        <ul>
+          <li><a onclick="showPage('home')">Beranda</a></li>
+          <li><a onclick="showPage('edukasi')">Edukasi Utama</a></li>
+          <li><a onclick="showPage('artikel')">Artikel</a></li>
+          <li><a onclick="showPage('faq')">FAQ</a></li>
+          <li><a onclick="showPage('tentang')">Tentang Kami</a></li>
+        </ul>
+      </div>
+      <div class="footer-col">
+        <h6>Topik Utama</h6>
+        <ul>
+          <li><a onclick="showPage('edukasi'); setTimeout(()=>scrollToSection('edu-1'),100)">Cara Pakai Obat</a></li>
+          <li><a onclick="showPage('edukasi'); setTimeout(()=>scrollToSection('edu-2'),100)">Jenis Obat</a></li>
+          <li><a onclick="showPage('edukasi'); setTimeout(()=>scrollToSection('edu-3'),100)">Swamedikasi</a></li>
+          <li><a onclick="showPage('edukasi'); setTimeout(()=>scrollToSection('edu-4'),100)">Antibiotik</a></li>
+          <li><a onclick="showPage('edukasi'); setTimeout(()=>scrollToSection('edu-5'),100)">Interaksi Obat</a></li>
+        </ul>
+      </div>
+      <div class="footer-col">
+        <h6>Kontak &amp; Darurat</h6>
+        <ul>
+          <li><a>Layanan Info Obat: 1500-567</a></li>
+          <li><a>Gawat Darurat: 119</a></li>
+          <li><a>BPOM RI: www.pom.go.id</a></li>
+          <li><a>Kemenkes RI: kemkes.go.id</a></li>
+          <li><a>kontak@bijakobat.id</a></li>
+        </ul>
+      </div>
+    </div>
+    <div class="footer-bottom">
+      <div>© 2026 Bijak Obat &middot; Proyek Edukasi Mahasiswa Farmasi &middot; <em>Obat Tepat, Hidup Sehat.</em></div>
+      <div>Konten bersifat edukatif, bukan pengganti konsultasi tenaga kesehatan profesional.</div>
+    </div>
+  </div>
+</footer>
+
+<script>
+  function showPage(pageId) {
+    document.querySelectorAll('.page').forEach(p => p.classList.remove('active'));
+    document.getElementById('page-' + pageId).classList.add('active');
+    document.querySelectorAll('.nav-link').forEach(l => l.classList.remove('active'));
+    const active = document.querySelector('.nav-link[data-page="' + pageId + '"]');
+    if (active) active.classList.add('active');
+    window.scrollTo({ top: 0, behavior: 'smooth' });
+  }
+
+  function toggleFaq(btn) {
+    const item = btn.closest('.faq-item');
+    const wasOpen = item.classList.contains('open');
+    document.querySelectorAll('.faq-item').forEach(i => i.classList.remove('open'));
+    if (!wasOpen) item.classList.add('open');
+  }
+
+  function scrollToSection(id) {
+    const el = document.getElementById(id);
+    if (el) {
+      const offset = 80;
+      const top = el.getBoundingClientRect().top + window.pageYOffset - offset;
+      window.scrollTo({ top, behavior: 'smooth' });
+    }
+  }
+</script>
+
+</body>
+</html>
